@@ -1,0 +1,27 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    description: a clone of a production application database, here it is named demo_db but it should be something like 'raw'
+    database: demo_db
+    tables: 
+      - name: raw_customers
+        description: raw customer data
+        columns:
+          - name: id
+            description: primary key for customers
+            tests:
+              - unique
+              - not_null
+      - name: raw_orders
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+      - name: raw_payments
+        loaded_at_field: etl_loaded_ts
+        description: check source freshness, modify the etl_loaded_ts column in raw_payments to play around with this
+        freshness:
+          warn_after: {count: 36, period: hour}
+          error_after: {count: 168, period: hour}

@@ -12,3 +12,21 @@ Orders can be one of the following statuses:
 
 
 {% enddocs %}
+
+
+
+
+{% docs customer_name_hash %}
+
+This is an MD5 hash of the customer's full name salted with 'crankswagon'
+
+{% enddocs %}
+
+
+
+
+{% docs michael_test %}
+
+Flag a warning when we see 'Michaels' just in case it's Michael Scott!
+
+{% enddocs %}

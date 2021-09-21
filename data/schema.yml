@@ -1,0 +1,11 @@
+version: 2
+
+seeds:
+  - name: raw_customers
+    description: inject raw data using seed for this example playground
+  
+  - name: raw_orders
+
+  - name: raw_payments
+    +column_types:
+      etl_loaded_ts: timestamp

@@ -10,9 +10,15 @@ models:
         tests:
           - unique
           - not_null
+          
+
+      - name: customer_hash
+        description: '{{ doc("customer_name_hash") }}'
 
       - name: first_name
         description: Customer's first name. PII.
+        
+
 
       - name: last_name
         description: Customer's last name. PII.
@@ -29,13 +35,17 @@ models:
       - name: total_order_amount
         description: Total value (AUD) of a customer's orders
 
+      - name: customer_lifetime_value
+        description: total amount of spend by this customer_id over from beginning of time
+
   - name: orders
     description: This table has basic information about orders, as well as some derived facts based on payments
 
     columns:
       - name: order_id
         tests:
-          - unique
+          - unique:
+              error_threshold: 10
           - not_null
         description: This is a unique identifier for an order
 

@@ -49,6 +49,7 @@ final as (
 
     select
         customers.customer_id,
+        customers.customer_hash,
         customers.first_name,
         customers.last_name,
         customer_orders.first_order,

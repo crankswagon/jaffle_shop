@@ -1,0 +1,52 @@
+[sqlfluff]
+verbose = 0
+nocolor = False
+dialect = snowflake
+templater = jinja
+# The rules reference https://docs.sqlfluff.com/en/stable/rules.html
+rules = L001,L002,L004,L005,L006,L008,L009,L010,L011,L012,L013,L014,L015,L016,L017,L018,L019,L020,L021,L023,L024,L025,L026,L027,L028,L030
+# Ignore L003 as isnt working as per our standards will need to manually check on indenting
+# Ignore L007 to allow operators at the end of the line rather than the beginning
+# Ignore L022 to allow no blank lines after CTE because tools like DBeaver use contiguous lines to detect query boundaries when using keyboard shortcut to run
+# Ignore L029 to allow columns in Snowflake tables that are named using SQL keywords as these already exist
+exclude_rules = L003,L007,L022,L029
+output_line_length = 92
+
+#ignore parsing errors e.g. something sqlfluff does not yet deal with, or incomplete SQL code
+#ignore=parsing
+
+[sqlfluff:indentation]
+indented_joins = False
+
+[sqlfluff:rules]
+tab_space_size = 4
+max_line_length = 200
+indent_unit = space
+
+# keyword capitalization
+[sqlfluff:rules:L010]
+capitalisation_policy = lower
+
+# all columns must have explicit AS alias even a single scalar column
+[sqlfluff:rules:L013]
+allow_scalar = False
+
+# non-keyword capitalization
+[sqlfluff:rules:L014]
+capitalisation_policy = lower
+
+# line length
+[sqlfluff:rules:L016]
+max_line_length = 120
+tab_space_size = 4
+indent_unit = space
+
+[sqlfluff:rules:L019]
+comma_style = leading
+
+[sqlfluff:rules:L028]
+single_table_references = consistent
+
+# function capitalization
+[sqlfluff:rules:L030]
+capitalisation_policy = lower
