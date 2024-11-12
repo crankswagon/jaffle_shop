@@ -86,3 +86,10 @@ elementary
 edr report -p .
 
 ```
+
+
+publish report on github pages
+
+```
+cp ./edr_target/elementary_report.html ./docs/index.html
+```
