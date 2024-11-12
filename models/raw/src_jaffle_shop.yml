@@ -1,9 +1,9 @@
 version: 2
 
 sources:
-  - name: jaffle_shop
+  - name: dbt_demo
     description: a clone of a production application database, here it is named demo_db but it should be something like 'raw'
-    database: demo_db
+    database: hive_metastore
     tables: 
       - name: raw_customers
         description: raw customer data

@@ -1,0 +1,8 @@
+packages:
+  - package: tnightengale/dbt_meta_testing
+    version: 0.3.6
+  - package: elementary-data/elementary
+    version: 0.15.2
+  - package: dbt-labs/dbt_utils
+    version: 1.3.0
+sha1_hash: 1126d8c7886fb9efd5918cd1c8136abcd0605b2a
